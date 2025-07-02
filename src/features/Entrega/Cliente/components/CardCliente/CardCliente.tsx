@@ -1,6 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
 import { Text, TouchableOpacity, View } from "react-native";
+interface CardClienteProps {
+    item?: any;
+}
 
-export function CardCliente() {
+export function CardCliente({ item }: CardClienteProps) {
+    const { navigate } = useNavigation();
     return (
         <View>
             <View
@@ -29,7 +34,12 @@ export function CardCliente() {
                     </View>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                    <TouchableOpacity style={{ padding: 8, backgroundColor: "#e0e0e0", borderRadius: 4 }}>
+                    <TouchableOpacity
+                        onPress={() => {
+                            navigate("Pedidos");
+                        }}
+                        style={{ padding: 8, backgroundColor: "#e0e0e0", borderRadius: 4 }}
+                    >
                         <Text>Pedidos</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ padding: 8, backgroundColor: "#e0e0e0", borderRadius: 4 }}>

@@ -1,8 +1,12 @@
 import { Text, TouchableOpacity, View } from "react-native";
 
-export function Card() {
+interface CardProps {
+    item: any;
+    onPress?: () => void;
+}
+export function Card({ item, onPress }: CardProps) {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
             <View
                 style={{
                     width: "100%",

@@ -1,16 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { Cliente, Home, Pedidos, RegistroPedido } from "./src/features";
-
+import { NavigationContainer } from "@react-navigation/native";
+import { RouteStack } from "./src/routes/routeStack";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 export default function App() {
-    return <RegistroPedido />;
+    return (
+        <>
+            <StatusBar style="dark" />
+            <SafeAreaProvider>
+                <NavigationContainer>
+                    <RouteStack />
+                </NavigationContainer>
+            </SafeAreaProvider>
+        </>
+    );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-});

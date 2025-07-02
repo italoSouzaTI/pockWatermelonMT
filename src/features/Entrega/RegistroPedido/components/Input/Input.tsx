@@ -13,7 +13,7 @@ export function Input({ placeholder, label, ...restInput }: InputProps) {
                     width: "100%",
                     height: 50,
                     borderRadius: 8,
-                    backgroundColor: "#F0F0F0",
+                    backgroundColor: "#e6e6e6",
                     paddingHorizontal: 16,
                     justifyContent: "center",
                     marginBottom: 16,

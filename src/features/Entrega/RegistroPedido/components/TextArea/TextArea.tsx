@@ -13,7 +13,7 @@ export function TextArea({ placeholder, label, ...restTextArea }: TextAreaProps)
                     width: "100%",
                     borderRadius: 8,
                     height: 200,
-                    backgroundColor: "#F0F0F0",
+                    backgroundColor: "#e6e6e6",
                     paddingHorizontal: 16,
                 }}
                 {...restTextArea}
