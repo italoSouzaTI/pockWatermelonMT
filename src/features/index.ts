@@ -1,3 +1,4 @@
-export * from "./Home/Home";
-export * from "./Cliente/Cliente";
-export * from "./Pedidos/Pedidos";
+export * from "./Entrega/Home/Home";
+export * from "./Entrega/Cliente/Cliente";
+export * from "./Entrega/Pedidos/Pedidos";
+export * from "./Entrega/RegistroPedido/RegistroPedido";
