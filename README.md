@@ -4,6 +4,10 @@ Estruturar um aplicativo, com as principais funções do app em produção para 
 Passo a passo
 
 -   [ ] Estrututar telas de acordo com fluxo do app.
+    -   [x] Home.
+    -   [x] Cliente.
+    -   [ ] Pedidos.
+    -   [ ] Registro.
 -   [ ] Estrututar navegação.
 -   [ ] Estrututar **Zustand**, para o trafego de informações entre telas.
 -   [ ] Estrututar construção de pessistencia de dados no watermelon.
