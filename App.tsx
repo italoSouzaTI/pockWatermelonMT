@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { Home } from "./src/features";
+import { Cliente, Home, Pedidos, RegistroPedido } from "./src/features";
 
 export default function App() {
-    return <Home />;
+    return <RegistroPedido />;
 }
 
 const styles = StyleSheet.create({

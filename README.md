@@ -3,7 +3,11 @@
 Estruturar um aplicativo, com as principais funções do app em produção para que possamos replicar toda as interações usando watermolon, como sua base de dados.
 Passo a passo
 
--   [ ] Estrututar telas de acordo com fluxo do app.
+-   [x] Estrututar telas de acordo com fluxo do app.
+    -   [x] Home.
+    -   [x] Cliente.
+    -   [x] Pedidos.
+    -   [x] Registro.
 -   [ ] Estrututar navegação.
 -   [ ] Estrututar **Zustand**, para o trafego de informações entre telas.
 -   [ ] Estrututar construção de pessistencia de dados no watermelon.
