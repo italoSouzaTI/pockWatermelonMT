@@ -1,8 +1,8 @@
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 export function Card() {
     return (
-        <View>
+        <TouchableOpacity>
             <View
                 style={{
                     width: "100%",
@@ -33,6 +33,6 @@ export function Card() {
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
