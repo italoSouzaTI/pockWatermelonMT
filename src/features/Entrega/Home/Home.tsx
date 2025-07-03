@@ -2,8 +2,10 @@ import { FlatList, View } from "react-native";
 import styleHome from "./style";
 import { Card } from "./components/Card/Card";
 import { Header } from "../../../components";
+import { useModelView } from "./useModelView";
 
 export function Home({ navigation }) {
+    const {} = useModelView();
     function renderItem(item: any) {
         return (
             <Card

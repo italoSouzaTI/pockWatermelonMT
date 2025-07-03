@@ -28,7 +28,7 @@ target 'pockwatermelonMt' do
       'ios'
     ]
   end
-
+  pod 'simdjson', path: '../node_modules/@nozbe/simdjson', modular_headers: true
   config = use_native_modules!(config_command)
 
   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']

@@ -7,7 +7,6 @@ interface HeaderProps {
     isGoBack?: boolean;
 }
 export function Header({ label, isGoBack = false }: HeaderProps) {
-    console.log("isGoBack", isGoBack);
     const { goBack } = useNavigation();
     const { top } = useSafeAreaInsets();
     return (
