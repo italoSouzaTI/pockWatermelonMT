@@ -1,3 +1,7 @@
 export enum nomeTabela {
-    empresa = "empresa",
+    empresa = "Empresa",
+    mapaDeCarga = "MapaDeCarga",
+    cliente = "Cliente",
+    pedido = "Pedido",
+    itemPedido = "ItemPedido",
 }

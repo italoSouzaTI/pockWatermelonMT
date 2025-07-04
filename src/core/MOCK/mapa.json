@@ -18,7 +18,7 @@
                         "numeroNF": 195775,
                         "quantidadeItens": 12,
                         "dataEntrega": "2025-05-15T16:58:31",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -5862,11 +5862,11 @@
         ]
     },
     {
-        "empresa": 1,
+        "empresa": 3,
         "codigo": "1676707",
         "dataEmissao": "2025-05-13T00:00:00",
         "observacao": null,
-        "enviadaPesquisa": true,
+        "enviadaPesquisa": false,
         "cliente": [
             {
                 "codigo": 53057,
@@ -5880,7 +5880,7 @@
                         "numeroNF": 199127,
                         "quantidadeItens": 16,
                         "dataEntrega": "2025-05-14T17:03:05",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -6994,11 +6994,11 @@
         ]
     },
     {
-        "empresa": 1,
+        "empresa": 4,
         "codigo": "1676736",
         "dataEmissao": "2025-05-16T00:00:00",
         "observacao": null,
-        "enviadaPesquisa": true,
+        "enviadaPesquisa": false,
         "cliente": [
             {
                 "codigo": 138636,
@@ -7012,7 +7012,7 @@
                         "numeroNF": 2330,
                         "quantidadeItens": 1,
                         "dataEntrega": "2025-05-16T20:35:43",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -7037,11 +7037,11 @@
         ]
     },
     {
-        "empresa": 1,
+        "empresa": 7,
         "codigo": "1676758",
         "dataEmissao": "2025-05-23T00:00:00",
         "observacao": null,
-        "enviadaPesquisa": true,
+        "enviadaPesquisa": false,
         "cliente": [
             {
                 "codigo": 167313,
@@ -7055,7 +7055,7 @@
                         "numeroNF": 203238,
                         "quantidadeItens": 30,
                         "dataEntrega": "2025-05-23T09:45:00",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -7269,7 +7269,7 @@
                         "numeroNF": 376,
                         "quantidadeItens": 20,
                         "dataEntrega": "2025-05-23T09:47:34",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -7303,7 +7303,7 @@
                         "numeroNF": 374,
                         "quantidadeItens": 12,
                         "dataEntrega": "2025-05-23T09:52:37",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -7328,7 +7328,7 @@
                         "numeroNF": 375,
                         "quantidadeItens": 12,
                         "dataEntrega": "2025-05-23T09:53:39",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -7387,7 +7387,7 @@
                         "numeroNF": 100226,
                         "quantidadeItens": 24,
                         "dataEntrega": "2025-06-02T00:51:11",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -7412,7 +7412,7 @@
                         "numeroNF": 151543,
                         "quantidadeItens": 14,
                         "dataEntrega": "2025-06-02T00:55:26",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -7930,7 +7930,7 @@
                         "numeroNF": 3026999,
                         "quantidadeItens": 12,
                         "dataEntrega": "2025-06-02T01:00:42",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -7980,7 +7980,7 @@
                         "numeroNF": 3041212,
                         "quantidadeItens": 3,
                         "dataEntrega": "2025-06-02T01:05:24",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -8005,7 +8005,7 @@
                         "numeroNF": 3048599,
                         "quantidadeItens": 154,
                         "dataEntrega": "2025-06-02T01:09:27",
-                        "enviadoComprovante": true,
+                        "enviadoComprovante": false,
                         "status": 4,
                         "statusEntrega": 2,
                         "grupo": 0,
@@ -8162,11 +8162,11 @@
         ]
     },
     {
-        "empresa": 1,
+        "empresa": 2,
         "codigo": "1676788",
         "dataEmissao": "2025-06-11T00:00:00",
         "observacao": null,
-        "enviadaPesquisa": true,
+        "enviadaPesquisa": false,
         "cliente": [
             {
                 "codigo": 1,

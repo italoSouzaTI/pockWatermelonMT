@@ -43,10 +43,9 @@ async function buscandoEmpresasDB(): Promise<
 }
 async function inserindoDadosNoBanco(empresa: Empresa[]) {
     await database.write(async () => {
-        // Usando for...of para garantir inserção sequencial
         for (const row of empresa) {
             const newEmpresa = await database.collections
-                .get("empresa") // Nome correto da tabela
+                .get(`${nomeTabela.empresa}`) // Nome correto da tabela
                 .create((emp) => {
                     emp.empresa_codigo = row.empresa_codigo;
                     emp.empresa_cnpj = row.empresa_cnpj;
