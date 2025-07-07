@@ -1,7 +1,7 @@
 import { Model } from "@nozbe/watermelondb";
-import { children, field, relation } from "@nozbe/watermelondb/decorators";
+import { children, field, relation, json } from "@nozbe/watermelondb/decorators";
 import { nomeTabela } from "../nomeTabelas";
-
+const sanitizeReactions = (json) => json;
 export class MapaDeCargaModel extends Model {
     static table = nomeTabela.mapaDeCarga;
 
@@ -16,13 +16,10 @@ export class MapaDeCargaModel extends Model {
     @field("mapa_total") mapa_total!: number;
     @field("mapa_andamento") mapa_andamento!: number;
     @field("mapa_sete_dias") mapa_sete_dias!: number;
+    @json("mapa_cliente_id", sanitizeReactions) mapa_cliente_id!: any;
 
     // Relação inversa para acessar a empresa vinculada
-    @relation("clientes", "cliente_id") cliente!: any;
     @relation("empresas", "empresa_id") empresa!: any;
 
     @children("pedidos") pedidos!: any;
-    //   @children('ocorrencias_devolver') ocorrenciasDevolver!:any
-    //   @children('ocorrencias') ocorrencias!:any
-    //   @children('jornadas_cliente') jornadas!:any
 }

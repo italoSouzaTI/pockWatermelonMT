@@ -19,12 +19,10 @@ export async function buscandoTodasEmpresas() {
     }
 }
 async function buscandoEmpresasDB(): Promise<
-    [] | Array<Omit<Empresa, "empresa_id" | "empresa_cnpj" | "empresa_razao_social" | "empresa_fantasia">>
+    [] | Array<Omit<Empresa, "empresa_cnpj" | "empresa_razao_social" | "empresa_fantasia">>
 > {
     try {
-        let auxEmpresa: Array<
-            Omit<Empresa, "empresa_id" | "empresa_cnpj" | "empresa_razao_social" | "empresa_fantasia">
-        > = [];
+        let auxEmpresa: Array<Omit<Empresa, "empresa_cnpj" | "empresa_razao_social" | "empresa_fantasia">> = [];
         const empresaDB = await database.get(nomeTabela.empresa).query().fetch();
         if (empresaDB.length == 0) {
             return [];
@@ -59,7 +57,7 @@ async function inserindoDadosNoBanco(empresa: Empresa[]) {
 }
 async function compararEmpresas(
     empresas: Empresa[],
-    empresasDB: Array<Omit<Empresa, "empresa_id" | "empresa_cnpj" | "empresa_razao_social" | "empresa_fantasia">>
+    empresasDB: Array<Omit<Empresa, "empresa_cnpj" | "empresa_razao_social" | "empresa_fantasia">>
 ) {
     const empresasParaInserir = empresas.filter((empresa) => {
         return !empresasDB.some((dbEmpresa) => dbEmpresa.empresa_codigo === empresa.empresa_codigo);

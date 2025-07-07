@@ -6,7 +6,7 @@ export class ClienteModel extends Model {
     static table = nomeTabela.cliente;
 
     @field("cliente_codigo") cliente_codigo!: number;
-    @field("cliente_razao_social") cliente_razaoSocial!: string;
+    @field("cliente_razao_social") cliente_razao_social!: string;
     @field("cliente_latitude") cliente_latitude!: number;
     @field("cliente_longitude") cliente_longitude!: number;
 
