@@ -1,6 +1,8 @@
 import { children, field } from "@nozbe/watermelondb/decorators";
 import { nomeTabela } from "../nomeTabelas";
-import { Model } from "@nozbe/watermelondb";
+import { Model, Relation } from "@nozbe/watermelondb";
+import { MapaDeCargaModel } from "./mapaDeCargaModel";
+import { PedidoModel } from "./pedidoModel";
 
 export class ClienteModel extends Model {
     static table = nomeTabela.cliente;
@@ -10,7 +12,7 @@ export class ClienteModel extends Model {
     @field("cliente_latitude") cliente_latitude!: number;
     @field("cliente_longitude") cliente_longitude!: number;
 
-    @children("mapas_de_carga") mapasDeCarga!: any;
-    @children("pedidos") pedidos!: any;
-    @children("jornadas_cliente") jornadas!: any;
+    @children(nomeTabela.mapaDeCarga) mapasDeCarga!: Relation<MapaDeCargaModel>;
+    @children(nomeTabela.pedido) pedidos!: Relation<PedidoModel>;
+    // @children("jornadas_cliente") jornadas!: Relation<MapaDeCargaModel>;
 }

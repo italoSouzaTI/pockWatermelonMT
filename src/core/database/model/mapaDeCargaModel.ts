@@ -1,13 +1,15 @@
-import { Model } from "@nozbe/watermelondb";
+import { Model, Relation } from "@nozbe/watermelondb";
 import { children, field, relation, json } from "@nozbe/watermelondb/decorators";
 import { nomeTabela } from "../nomeTabelas";
+import { EmpresaModel } from "./empresaModel";
+import { PedidoModel } from "./pedidoModel";
 const sanitizeReactions = (json) => json;
 export class MapaDeCargaModel extends Model {
     static table = nomeTabela.mapaDeCarga;
 
     static associations = {
-        clientes: { type: "belongs_to", key: "cliente_id" },
-        empresas: { type: "belongs_to", key: "empresa_id" },
+        [nomeTabela.cliente]: { type: "belongs_to", foreignKey: "cliente_id" },
+        [nomeTabela.empresa]: { type: "belongs_to", foreignKey: "empresa_id" },
     };
 
     @field("mapa_id") mapa_id!: number;
@@ -19,7 +21,7 @@ export class MapaDeCargaModel extends Model {
     @json("mapa_cliente_id", sanitizeReactions) mapa_cliente_id!: any;
 
     // Relação inversa para acessar a empresa vinculada
-    @relation("empresas", "empresa_id") empresa!: any;
+    @relation(nomeTabela.empresa, "empresa_id") empresa_id!: Relation<EmpresaModel>;
 
-    @children("pedidos") pedidos!: any;
+    @children(nomeTabela.pedido) pedidos!: Relation<PedidoModel>;
 }

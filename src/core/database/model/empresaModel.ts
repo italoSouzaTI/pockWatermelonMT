@@ -1,6 +1,8 @@
-import { Model } from "@nozbe/watermelondb";
+import { Model, Relation } from "@nozbe/watermelondb";
 import { children, field } from "@nozbe/watermelondb/decorators";
 import { nomeTabela } from "../nomeTabelas";
+import { MapaDeCargaModel } from "./mapaDeCargaModel";
+import { PedidoModel } from "./pedidoModel";
 
 export class EmpresaModel extends Model {
     static table = nomeTabela.empresa;
@@ -10,6 +12,6 @@ export class EmpresaModel extends Model {
     @field("empresa_fantasia") empresa_fantasia!: string;
     @field("empresa_ativa") empresa_ativa!: boolean;
 
-    @children("mapas_de_carga") mapasDeCarga!: any;
-    @children("pedidos") pedidos!: any;
+    @children(nomeTabela.mapaDeCarga) mapasDeCarga!: Relation<MapaDeCargaModel>;
+    @children(nomeTabela.pedido) pedidos!: Relation<PedidoModel>;
 }

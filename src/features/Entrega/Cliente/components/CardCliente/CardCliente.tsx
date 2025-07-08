@@ -1,10 +1,11 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Text, TouchableOpacity, View } from "react-native";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 interface CardClienteProps {
     item?: any;
 }
-
 export function CardCliente({ item }: CardClienteProps) {
+    const { params } = useRoute();
     const { navigate } = useNavigation();
     return (
         <View>
@@ -20,28 +21,38 @@ export function CardCliente({ item }: CardClienteProps) {
                 }}
             >
                 <View>
-                    <Text style={{ fontSize: 14 }}>12343</Text>
+                    <Text style={{ fontSize: 14 }}>{item.codigo}</Text>
                 </View>
                 <View>
-                    <Text style={{ fontSize: 14, fontWeight: "bold" }}>Nome cliente</Text>
+                    <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.razaoSocial}</Text>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                     <View style={{ flexDirection: "row", gap: 8 }}>
                         <Text style={{ fontSize: 14, fontWeight: "bold" }}>Entregue</Text>
-                        <Text style={{ fontSize: 14 }}>0</Text>
+                        <Text style={{ fontSize: 14 }}>{item.entregue}</Text>
                         <Text style={{ fontSize: 14, fontWeight: "bold" }}>de</Text>
-                        <Text style={{ fontSize: 14 }}>0</Text>
+                        <Text style={{ fontSize: 14 }}>{item.total}</Text>
                     </View>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                     <TouchableOpacity
                         onPress={() => {
-                            navigate("Pedidos");
+                            navigate("Pedidos", {
+                                cliente: item.cliente_id,
+                                mapaId: params.mapaId,
+                                empresaId: params.empresaId,
+                            });
                         }}
                         style={{ padding: 8, backgroundColor: "#e0e0e0", borderRadius: 4 }}
                     >
                         <Text>Pedidos</Text>
                     </TouchableOpacity>
+                    {item.latitude != 0 && item.longitude != 0 && (
+                        <TouchableOpacity style={{ padding: 8, backgroundColor: "#e0e0e0", borderRadius: 4 }}>
+                            <FontAwesome6 name="map-location-dot" size={18} color="red" />
+                        </TouchableOpacity>
+                    )}
+
                     <TouchableOpacity style={{ padding: 8, backgroundColor: "#e0e0e0", borderRadius: 4 }}>
                         <Text>Iniciar entrega</Text>
                     </TouchableOpacity>

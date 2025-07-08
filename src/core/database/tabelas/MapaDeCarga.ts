@@ -11,6 +11,6 @@ export const mapaDeCargaSchema = tableSchema({
         { name: "mapa_andamento", type: "number" },
         { name: "mapa_sete_dias", type: "number", isOptional: true },
         { name: "mapa_cliente_id", type: "string" },
-        { name: "empresa_id", type: "string" },
+        { name: "empresa_id", type: "string", isIndexed: true },
     ],
 });

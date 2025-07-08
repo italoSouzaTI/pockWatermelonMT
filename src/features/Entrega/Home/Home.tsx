@@ -1,17 +1,22 @@
-import { FlatList, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import styleHome from "./style";
 import { Card } from "./components/Card/Card";
 import { Header } from "../../../components";
 import { useModelView } from "./useModelView";
+import { TcardMapa } from "./types/mapa";
 
 export function Home({ navigation }) {
-    const {} = useModelView();
-    function renderItem(item: any) {
+    const { listaMapas } = useModelView();
+    function renderItem(item: TcardMapa) {
         return (
             <Card
                 item={item}
                 onPress={() => {
-                    navigation.navigate("Cliente");
+                    navigation.navigate("Cliente", {
+                        clientes: item.clientes,
+                        mapaId: item.mapa_id,
+                        empresaId: item.empresa_id,
+                    });
                 }}
             />
         );
@@ -20,9 +25,17 @@ export function Home({ navigation }) {
         <View style={styleHome.container}>
             <Header label="Mapas" />
             <FlatList
-                data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-                contentContainerStyle={{ padding: 16, gap: 16, flex: 1 }}
+                data={listaMapas}
+                keyExtractor={(item) => String(item.mapa)}
+                contentContainerStyle={{ padding: 16, gap: 16, flexGrow: 1 }}
                 renderItem={({ item }) => renderItem(item)}
+                ListEmptyComponent={() => (
+                    <View style={{ flex: 1, alignItems: "center", paddingTop: 20 }}>
+                        <Text style={{ color: "gray", fontWeight: "700", fontSize: 16 }}>
+                            Nenhum mapa encontrado até o momento.
+                        </Text>
+                    </View>
+                )}
             />
         </View>
     );

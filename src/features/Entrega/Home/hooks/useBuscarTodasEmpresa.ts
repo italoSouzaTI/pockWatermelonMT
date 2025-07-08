@@ -14,8 +14,10 @@ export async function buscandoTodasEmpresas() {
         } else {
             await compararEmpresas(empresas, resuladoEmpresaDB);
         }
+        return true;
     } catch (error) {
         Alert.alert(error);
+        return false;
     }
 }
 async function buscandoEmpresasDB(): Promise<
@@ -51,7 +53,6 @@ async function inserindoDadosNoBanco(empresa: Empresa[]) {
                     emp.empresa_fantasia = row.empresa_fantasia;
                     emp.empresa_ativa = row.empresa_ativa;
                 });
-            console.log("Novo ID inserido: ", newEmpresa.id);
         }
     });
 }

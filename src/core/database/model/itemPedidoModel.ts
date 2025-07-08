@@ -1,11 +1,12 @@
-import { Model } from "@nozbe/watermelondb";
+import { Model, Relation } from "@nozbe/watermelondb";
 import { field, relation } from "@nozbe/watermelondb/decorators";
 import { nomeTabela } from "../nomeTabelas";
+import { PedidoModel } from "./pedidoModel";
 
 export class ItemPedidoModel extends Model {
     static table = nomeTabela.itemPedido;
     static associations = {
-        pedidos: { type: "belongs_to", key: "pedido_id" },
+        [nomeTabela.pedido]: { type: "belongs_to", foreignKey: "pedido_id" },
     };
 
     @field("item_pedido_produto_codigo") item_pedido_produtoCodigo!: number;
@@ -19,5 +20,5 @@ export class ItemPedidoModel extends Model {
     @field("item_pedido_guid_imagem") item_pedido_guidImagem!: string;
     @field("item_pedido_url_imagem") item_pedido_urlImagem!: string;
 
-    @relation("pedidos", "pedido_id") pedido!: any;
+    @relation(nomeTabela.pedido, "pedido_id") pedido!: Relation<PedidoModel>;
 }
