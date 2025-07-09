@@ -1,13 +1,17 @@
-import { children, field } from "@nozbe/watermelondb/decorators";
+import { field, relation } from "@nozbe/watermelondb/decorators";
 import { nomeTabela } from "../nomeTabelas";
 import { Model, Relation } from "@nozbe/watermelondb";
 import { MapaDeCargaModel } from "./mapaDeCargaModel";
-import { PedidoModel } from "./pedidoModel";
 import { EmpresaModel } from "./empresaModel";
 import { ClienteModel } from "./clienteModel";
 
 export class JornadaDoClienteModel extends Model {
     static table = nomeTabela.jornadaDoCliente;
+    static associations = {
+        [nomeTabela.cliente]: { type: "belongs_to", foreignKey: "cliente_id" },
+        [nomeTabela.mapaDeCarga]: { type: "belongs_to", foreignKey: "mapa_de_carga_id" },
+        [nomeTabela.empresa]: { type: "belongs_to", foreignKey: "empresa_id" },
+    };
 
     @field("jornada_do_cliente_data_inicio") jornada_do_cliente_data_inicio!: number;
     @field("jornada_do_cliente_data_fim") jornada_do_cliente_data_fim!: number;
@@ -18,7 +22,7 @@ export class JornadaDoClienteModel extends Model {
     @field("jornada_do_cliente_latitude_fim") jornada_do_cliente_latitude_fim!: number;
     @field("jornada_do_cliente_longitude_fim") jornada_do_cliente_longitude_fim!: number;
 
-    @children(nomeTabela.mapaDeCarga) mapa_de_carga_id!: Relation<MapaDeCargaModel>;
-    @children(nomeTabela.pedido) empresa_id!: Relation<EmpresaModel>;
-    @children(nomeTabela.cliente) cliente_id!: Relation<ClienteModel>;
+    @relation(nomeTabela.mapaDeCarga, "mapa_de_carga_id") mapaDeCarga!: Relation<MapaDeCargaModel>;
+    @relation(nomeTabela.pedido, "empresa_id") empresa!: Relation<EmpresaModel>;
+    @relation(nomeTabela.cliente, "cliente_id") cliente!: Relation<ClienteModel>;
 }

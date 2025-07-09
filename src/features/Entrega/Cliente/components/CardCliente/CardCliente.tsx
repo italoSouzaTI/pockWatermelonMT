@@ -1,10 +1,13 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Text, TouchableOpacity, View } from "react-native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import { TCardCliente } from "../../type/TCardCliente";
 interface CardClienteProps {
-    item?: any;
+    item: TCardCliente;
+    onPressJornada: (pedido: TCardCliente, mapaId: string, empresaId: string) => void;
 }
-export function CardCliente({ item }: CardClienteProps) {
+export function CardCliente({ item, onPressJornada }: CardClienteProps) {
+    console.log("item", item);
     const { params } = useRoute();
     const { navigate } = useNavigation();
     return (
@@ -53,8 +56,11 @@ export function CardCliente({ item }: CardClienteProps) {
                         </TouchableOpacity>
                     )}
 
-                    <TouchableOpacity style={{ padding: 8, backgroundColor: "#e0e0e0", borderRadius: 4 }}>
-                        <Text>Iniciar entrega</Text>
+                    <TouchableOpacity
+                        style={{ padding: 8, backgroundColor: "#e0e0e0", borderRadius: 4 }}
+                        onPress={() => onPressJornada(item, params?.mapaId, params?.empresaId)}
+                    >
+                        <Text>{item.emAndamento ? "Finalizar entrega" : "Iniciar entrega"}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
