@@ -14,5 +14,4 @@ export class ClienteModel extends Model {
 
     @children(nomeTabela.mapaDeCarga) mapasDeCarga!: Relation<MapaDeCargaModel>;
     @children(nomeTabela.pedido) pedidos!: Relation<PedidoModel>;
-    // @children("jornadas_cliente") jornadas!: Relation<MapaDeCargaModel>;
 }

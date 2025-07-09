@@ -4,4 +4,5 @@ export enum nomeTabela {
     cliente = "Cliente",
     pedido = "Pedido",
     itemPedido = "ItemPedido",
+    jornadaDoCliente = "JornadaDoCliente",
 }

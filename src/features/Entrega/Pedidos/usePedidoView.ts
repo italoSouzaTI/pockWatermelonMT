@@ -6,7 +6,6 @@ import { Q } from "@nozbe/watermelondb";
 
 export function usePedidoView() {
     const { params } = useRoute();
-    console.log("params", params);
     const [listaPedidos, setListaPedidos] = useState([]);
     async function carregandoListaDePedidos() {
         try {
@@ -21,7 +20,6 @@ export function usePedidoView() {
                     )
                 )
                 .fetch();
-            console.log(pedidos);
             for (const element of pedidos) {
                 listaDePedidos.push({
                     codigo: element.pedido_venda_codigo,

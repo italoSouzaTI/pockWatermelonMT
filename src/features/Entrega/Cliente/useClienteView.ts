@@ -25,7 +25,6 @@ export function useClienteView() {
                             )
                         )
                         .fetch();
-                    console.log(pedidos);
 
                     const clienteAtual = (await database.get(nomeTabela.cliente).find(cliente))._raw;
                     const entregueAtual = pedidos.filter((item) => item.pedido_selecionado).length;

@@ -14,7 +14,6 @@ export function useModelView() {
             const mapasNoDB = (await database.get(nomeTabela.mapaDeCarga).query().fetch()).map((ctx) => ctx._raw);
             for (const element of mapasNoDB) {
                 const empresaAtual = (await database.get(nomeTabela.empresa).find(element.empresa_id))._raw;
-                console.log("empresaAtual", empresaAtual);
                 novosMapas.push({
                     mapa_id: element.id,
                     empresa_id: element.empresa_id,

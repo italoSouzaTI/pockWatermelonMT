@@ -1,2 +1,2 @@
 export const NOME_DATABASE = "pockWatermelonMotorista";
-export const VERSAO_MIGRATION = 3;
+export const VERSAO_MIGRATION = 5;

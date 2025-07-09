@@ -15,5 +15,6 @@ export const itemPedidoSchema = tableSchema({
         { name: "item_pedido_guid_imagem", type: "string", isOptional: true },
         { name: "item_pedido_url_imagem", type: "string", isOptional: true },
         { name: "pedido_id", type: "string" },
+        { name: "empresa_id", type: "string" },
     ],
 });

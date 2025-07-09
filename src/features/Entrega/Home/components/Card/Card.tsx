@@ -6,7 +6,6 @@ interface CardProps {
     onPress?: () => void;
 }
 export function Card({ item, onPress }: CardProps) {
-    console.log(item);
     return (
         <TouchableOpacity onPress={onPress}>
             <View

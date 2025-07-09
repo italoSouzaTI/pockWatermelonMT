@@ -68,7 +68,6 @@ async function inserirMapa(mapa: MapaDeCargaModel, clientes: { cliente: ClienteM
 
         const idsClientes = clientes.map((item) => item.cliente.id);
         const empresa = empresaAtual[0];
-        console.log("empresa", empresa);
 
         let mapaCriado: MapaDeCargaModel;
         mapaCriado = await database.write(async () => {
@@ -91,7 +90,6 @@ async function inserirMapa(mapa: MapaDeCargaModel, clientes: { cliente: ClienteM
                 throw innerError;
             }
         });
-        console.log("mapaCriado", mapaCriado);
         await inserirPedidos(mapaCriado, empresa, clientes);
     } catch (error) {
         console.error("Erro geral em inserirMapa:", error);
@@ -131,7 +129,7 @@ async function inserirPedidos(
                             pedido.pedido_data_transmitido = 0;
                             pedido.pedido_selecionado = false;
 
-                            // CORREÇÃO DAS RELAÇÕES (usando IDs)
+                            // RELAÇÕES (usando IDs)
                             pedido.cliente_id.set(cliente);
                             pedido.mapa_id.set(mapaAtual);
                             pedido.empresa_id.set(empresaAtual);
@@ -144,11 +142,9 @@ async function inserirPedidos(
                         dados: element,
                     });
 
-                    console.log("Pedido criado:", pedidoCriado);
-
-                    // if (element.item) {
-                    //     await inserirItemPedido(pedidoCriado.id, element.item);
-                    // }
+                    if (element.item) {
+                        await inserirItemPedido(pedidoCriado, element.item, empresaAtual);
+                    }
                 } catch (error) {
                     console.error(`Erro ao inserir pedido para cliente ${cliente.id}:`, error);
                     resultados.push({
@@ -166,7 +162,7 @@ async function inserirPedidos(
         throw error;
     }
 }
-async function inserirItemPedido(pedidoId: string, itemAtual: []) {
+async function inserirItemPedido(pedidoId: string, itemAtual: [], empresa: MapaDeCargaModel) {
     try {
         for (const element of itemAtual) {
             try {
@@ -182,7 +178,8 @@ async function inserirItemPedido(pedidoId: string, itemAtual: []) {
                         item.item_pedido_quimico = element.quimico;
                         item.item_pedido_guid_imagem = element.guidImagem;
                         item.item_pedido_url_imagem = element.urlImagem;
-                        item.pedido_id = pedidoId;
+                        item.pedido_id.set(pedidoId);
+                        item.empresa_id.set(empresa);
                     });
                 });
             } catch (error) {
