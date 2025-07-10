@@ -22,7 +22,6 @@ export function usePedidoView() {
                 )
                 .fetch();
             for (const element of pedidos) {
-                console.log("element", element);
                 listaDePedidos.push({
                     pedidoId: element.id,
                     codigo: element.pedido_venda_codigo,
