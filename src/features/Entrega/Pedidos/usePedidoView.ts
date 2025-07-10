@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { nomeTabela } from "../../../core/database/nomeTabelas";
-import { useRoute } from "@react-navigation/native";
+import { useIsFocused, useRoute } from "@react-navigation/native";
 import { database } from "../../../core/database";
 import { Q } from "@nozbe/watermelondb";
 
 export function usePedidoView() {
     const { params } = useRoute();
+    const isFocused = useIsFocused();
     const [listaPedidos, setListaPedidos] = useState([]);
     async function carregandoListaDePedidos() {
         try {
@@ -21,7 +22,9 @@ export function usePedidoView() {
                 )
                 .fetch();
             for (const element of pedidos) {
+                console.log("element", element);
                 listaDePedidos.push({
+                    pedidoId: element.id,
                     codigo: element.pedido_venda_codigo,
                     numeronNF: element.pedido_numero_nf,
                     quantidadeItens: element.pedido_quantidade_itens,
@@ -38,7 +41,7 @@ export function usePedidoView() {
     }
     useEffect(() => {
         carregandoListaDePedidos();
-    }, []);
+    }, [isFocused]);
     return {
         listaPedidos,
     };

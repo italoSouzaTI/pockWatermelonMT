@@ -1,12 +1,14 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-interface ICardPedidos {
-    item: any;
+import { Alert, Text, TouchableOpacity, View } from "react-native";
+import { useCardPedidos } from "./useCardPedidos";
+import { TCardPedidos } from "../../types/tPedidos";
+export interface ICardPedidos {
+    item: TCardPedidos;
 }
 export function CardPedidos({ item }: ICardPedidos) {
-    const [isSelected, setIsSelected] = useState(false);
+    const { checandoPedido, isSelected } = useCardPedidos(item);
     const { navigate } = useNavigation();
     return (
         <View
@@ -22,17 +24,23 @@ export function CardPedidos({ item }: ICardPedidos) {
         >
             <View style={{ flexDirection: "row", justifyContent: "space-between", gap: 16, alignItems: "center" }}>
                 {isSelected ? (
-                    <TouchableOpacity onPress={() => setIsSelected(!isSelected)}>
+                    <TouchableOpacity disabled>
                         <MaterialIcons name="check-box" size={32} color="green" />
                     </TouchableOpacity>
                 ) : (
-                    <TouchableOpacity onPress={() => setIsSelected(!isSelected)}>
+                    <TouchableOpacity onPress={() => checandoPedido(item)}>
                         <MaterialIcons name="check-box-outline-blank" size={32} color="gray" />
                     </TouchableOpacity>
                 )}
                 <TouchableOpacity
                     style={{ flex: 1, flexDirection: "row", justifyContent: "space-between" }}
                     onPress={() => {
+                        if (item.dataEntrega == -62135589600000) {
+                            return Alert.alert(
+                                "Atenção",
+                                "Precisa selecionar pedido para poder preencher os dados do pedido."
+                            );
+                        }
                         navigate("RegistroPedido");
                     }}
                 >

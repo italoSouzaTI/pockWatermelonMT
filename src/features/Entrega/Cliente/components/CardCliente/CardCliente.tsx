@@ -44,6 +44,7 @@ export function CardCliente({ item, onPressJornada }: CardClienteProps) {
                                 cliente: item.cliente_id,
                                 mapaId: params.mapaId,
                                 empresaId: params.empresaId,
+                                pedidoId: item.cliente_id,
                             });
                         }}
                         style={{ padding: 8, backgroundColor: "#e0e0e0", borderRadius: 4 }}

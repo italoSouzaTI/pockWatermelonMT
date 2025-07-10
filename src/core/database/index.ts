@@ -11,6 +11,7 @@ import {
     MapaDeCargaModel,
     PedidoModel,
     JornadaDoClienteModel,
+    EntregaDoPedidoModel,
 } from "./model";
 // import Post from './model/Post' // ⬅️ You'll import your Models here
 
@@ -29,5 +30,13 @@ const adapter = new SQLiteAdapter({
 // Then, make a Watermelon database from it!
 export const database = new Database({
     adapter,
-    modelClasses: [EmpresaModel, ClienteModel, ItemPedidoModel, MapaDeCargaModel, PedidoModel, JornadaDoClienteModel],
+    modelClasses: [
+        EmpresaModel,
+        ClienteModel,
+        ItemPedidoModel,
+        MapaDeCargaModel,
+        PedidoModel,
+        JornadaDoClienteModel,
+        EntregaDoPedidoModel,
+    ],
 });

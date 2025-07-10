@@ -6,8 +6,17 @@ import { clienteSchema } from "./tabelas/Cliente";
 import { mapaDeCargaSchema } from "./tabelas/MapaDeCarga";
 import { pedidoSchema } from "./tabelas/Pedido";
 import { jornadaDoClienteSchema } from "./tabelas/jornadaCliente";
+import { entregaDoPedidoSchema } from "./tabelas/EntregaDoPedido";
 
 export default appSchema({
     version: VERSAO_MIGRATION,
-    tables: [empresaSchema, itemPedidoSchema, clienteSchema, mapaDeCargaSchema, pedidoSchema, jornadaDoClienteSchema],
+    tables: [
+        empresaSchema,
+        itemPedidoSchema,
+        clienteSchema,
+        mapaDeCargaSchema,
+        pedidoSchema,
+        jornadaDoClienteSchema,
+        entregaDoPedidoSchema,
+    ],
 });
