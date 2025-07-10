@@ -16,7 +16,6 @@ export function TextArea({ placeholder, label, ...restTextArea }: TextAreaProps)
                     backgroundColor: "#e6e6e6",
                     paddingHorizontal: 16,
                 }}
-                {...restTextArea}
             >
                 <TextInput
                     placeholder={placeholder}
@@ -25,6 +24,7 @@ export function TextArea({ placeholder, label, ...restTextArea }: TextAreaProps)
                         textAlignVertical: "top",
                         top: 16,
                     }}
+                    {...restTextArea}
                 />
             </View>
         </View>

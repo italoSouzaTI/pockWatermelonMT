@@ -5,3 +5,4 @@ export * from "./itemPedidoModel";
 export * from "./pedidoModel";
 export * from "./jornadaDoClienteModel";
 export * from "./entregaDoPedidoModel";
+export * from "./imagemPedidoEnvioModel";

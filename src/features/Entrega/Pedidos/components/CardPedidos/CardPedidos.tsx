@@ -41,7 +41,7 @@ export function CardPedidos({ item }: ICardPedidos) {
                                 "Precisa selecionar pedido para poder preencher os dados do pedido."
                             );
                         }
-                        navigate("RegistroPedido");
+                        navigate("RegistroPedido", { pedidoId: item.pedidoId });
                     }}
                 >
                     <View style={{ gap: 8 }}>

@@ -7,6 +7,7 @@ import { mapaDeCargaSchema } from "./tabelas/MapaDeCarga";
 import { pedidoSchema } from "./tabelas/Pedido";
 import { jornadaDoClienteSchema } from "./tabelas/jornadaCliente";
 import { entregaDoPedidoSchema } from "./tabelas/EntregaDoPedido";
+import { ImagemPedidoEnvioSchema } from "./tabelas/ImagemPedidoEnvio";
 
 export default appSchema({
     version: VERSAO_MIGRATION,
@@ -18,5 +19,6 @@ export default appSchema({
         pedidoSchema,
         jornadaDoClienteSchema,
         entregaDoPedidoSchema,
+        ImagemPedidoEnvioSchema,
     ],
 });

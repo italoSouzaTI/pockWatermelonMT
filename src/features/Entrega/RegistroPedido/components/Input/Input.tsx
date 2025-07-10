@@ -18,9 +18,8 @@ export function Input({ placeholder, label, ...restInput }: InputProps) {
                     justifyContent: "center",
                     marginBottom: 16,
                 }}
-                {...restInput}
             >
-                <TextInput placeholder={placeholder} />
+                <TextInput placeholder={placeholder} {...restInput} />
             </View>
         </View>
     );

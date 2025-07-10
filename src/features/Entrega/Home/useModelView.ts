@@ -4,9 +4,20 @@ import { database } from "../../../core/database";
 import { nomeTabela } from "../../../core/database/nomeTabelas";
 import { BuscandoMapas } from "./hooks/useBuscarMapa";
 import { TcardMapa } from "./types/mapa";
+import { useCameraPermissions } from "expo-camera";
+
 export function useModelView() {
     const [listaMapas, setListaMapas] = useState<TcardMapa[]>([]);
     const [test, setTeste] = useState(false);
+    const [permission, requestPermission] = useCameraPermissions();
+    async function permissaoCamera() {
+        try {
+            console.log(permission);
+            if (permission?.granted == false) {
+                await requestPermission();
+            }
+        } catch (error) {}
+    }
     async function populandolistaDeMapa() {
         try {
             let novosMapas: TcardMapa[] = [];
@@ -35,6 +46,7 @@ export function useModelView() {
         })();
     }, []);
     useEffect(() => {
+        permissaoCamera();
         if (test) {
             BuscandoMapas();
             populandolistaDeMapa();

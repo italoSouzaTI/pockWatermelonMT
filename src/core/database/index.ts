@@ -12,6 +12,7 @@ import {
     PedidoModel,
     JornadaDoClienteModel,
     EntregaDoPedidoModel,
+    imagemPedidoEnvioModel,
 } from "./model";
 // import Post from './model/Post' // ⬅️ You'll import your Models here
 
@@ -38,5 +39,6 @@ export const database = new Database({
         PedidoModel,
         JornadaDoClienteModel,
         EntregaDoPedidoModel,
+        imagemPedidoEnvioModel,
     ],
 });

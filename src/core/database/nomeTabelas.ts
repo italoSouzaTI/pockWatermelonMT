@@ -6,4 +6,5 @@ export enum nomeTabela {
     itemPedido = "ItemPedido",
     jornadaDoCliente = "JornadaDoCliente",
     entregaDoPedido = "EntregaDoPedido",
+    imagemPedidoEnvio = "ImagemPedidoEnvio",
 }

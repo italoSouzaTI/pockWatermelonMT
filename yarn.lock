@@ -2474,6 +2474,13 @@ expo-build-properties@~0.12.5:
     ajv "^8.11.0"
     semver "^7.6.0"
 
+expo-camera@~16.1.10:
+  version "16.1.10"
+  resolved "https://registry.yarnpkg.com/expo-camera/-/expo-camera-16.1.10.tgz#56dd7abc118b4de1771e6b64739197c2277f4083"
+  integrity sha512-qoRJeSwPmMbuu0VfnQTC+q79Kt2SqTWColEImgithL9u0qUQcC55U89IfhZk55Hpt6f1DgKuDzUOG5oY+snSWg==
+  dependencies:
+    invariant "^2.2.4"
+
 expo-constants@~17.1.6:
   version "17.1.6"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-17.1.6.tgz#a31b019216f7f7bb4907aeffa2d6bf856751985e"
