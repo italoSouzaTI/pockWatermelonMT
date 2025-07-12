@@ -9,10 +9,6 @@ function existeMapa(mapasNoDB: string[], codigo: string): boolean {
 }
 export async function BuscandoMapas() {
     try {
-        // await resetTable(nomeTabela.mapaDeCarga);
-        // await resetTable(nomeTabela.cliente);
-        // await resetTable(nomeTabela.pedido);
-        // await resetTable(nomeTabela.itemPedido);
         const mapasNoDB = (await database.get(nomeTabela.mapaDeCarga).query().fetch()).map((ctx) =>
             String(ctx.mapa_id)
         );
@@ -25,11 +21,11 @@ export async function BuscandoMapas() {
             const codigoMapa = String(element.codigo);
 
             if (!existeMapa(mapasNoDB, codigoMapa)) {
-                console.warn(`Mapa ${codigoMapa} não existe, inserindo...`);
+                // console.warn(`Mapa ${codigoMapa} não existe, inserindo...`);
                 const clientesID = await inserindoClientes(element.cliente);
                 await inserirMapa(element, clientesID);
             } else {
-                console.warn(`Mapa ${codigoMapa} já existe, pulando...`);
+                // console.warn(`Mapa ${codigoMapa} já existe, pulando...`);
             }
         }
     } catch (error) {}
@@ -110,7 +106,7 @@ async function inserirPedidos(
 
         for (const { cliente, pedido: pedidos } of clientes) {
             if (!pedidos || !Array.isArray(pedidos)) {
-                console.warn(`Cliente ${cliente.id} sem pedidos válidos`);
+                // console.warn(`Cliente ${cliente.id} sem pedidos válidos`);
                 continue;
             }
 

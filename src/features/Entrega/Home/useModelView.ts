@@ -5,14 +5,15 @@ import { nomeTabela } from "../../../core/database/nomeTabelas";
 import { BuscandoMapas } from "./hooks/useBuscarMapa";
 import { TcardMapa } from "./types/mapa";
 import { useCameraPermissions } from "expo-camera";
+import { useSincronizacao } from "../api/useSincronizacao";
 
 export function useModelView() {
     const [listaMapas, setListaMapas] = useState<TcardMapa[]>([]);
+    const { syncAll } = useSincronizacao();
     const [test, setTeste] = useState(false);
     const [permission, requestPermission] = useCameraPermissions();
     async function permissaoCamera() {
         try {
-            console.log(permission);
             if (permission?.granted == false) {
                 await requestPermission();
             }
@@ -39,6 +40,7 @@ export function useModelView() {
             setListaMapas(novosMapas);
         } catch (error) {}
     }
+
     useEffect(() => {
         (async () => {
             const result = await buscandoTodasEmpresas();
@@ -50,6 +52,7 @@ export function useModelView() {
         if (test) {
             BuscandoMapas();
             populandolistaDeMapa();
+            // syncAll();
         }
     }, [test]);
     return {

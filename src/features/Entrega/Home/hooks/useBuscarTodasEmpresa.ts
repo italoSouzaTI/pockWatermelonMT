@@ -9,7 +9,6 @@ export async function buscandoTodasEmpresas() {
     try {
         const empresas = await supabaseService.todasEmpresas();
         const resuladoEmpresaDB = await buscandoEmpresasDB();
-        console.log("resuladoEmpresaDB", resuladoEmpresaDB);
         if (resuladoEmpresaDB.length == 0) {
             await inserindoDadosNoBanco(empresas);
         } else {

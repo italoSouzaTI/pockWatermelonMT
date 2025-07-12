@@ -7,7 +7,6 @@ import { Q } from "@nozbe/watermelondb";
 
 export function useRegistroPedidoView() {
     const { params } = useRoute();
-    console.log("params", params);
     const [nome, setNome] = useState("");
     const [documento, setDocumento] = useState("");
     const [canhoto, setCanhoto] = useState("");
@@ -60,7 +59,6 @@ export function useRegistroPedidoView() {
         if (cameraRef.current) {
             try {
                 const photo = await cameraRef.current.takePictureAsync();
-                console.log(photo);
                 if (canhoto.length == 0) {
                     setCanhoto(photo.uri);
                 } else if (boleto.length == 0) {

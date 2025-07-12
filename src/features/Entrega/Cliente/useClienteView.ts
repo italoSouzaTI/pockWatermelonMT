@@ -35,13 +35,10 @@ export function useClienteView() {
                     const clienteAtual = (await database.get(nomeTabela.cliente).find(cliente))._raw;
                     const entregueAtual = pedidos.filter((item) => item.pedido_selecionado).length;
                     const aux = await database.get(nomeTabela.jornadaDoCliente).query().fetch();
-                    console.log("aux", aux);
-                    console.log("clienteAtual", clienteAtual);
                     const registroAtivo = await database
                         .get(nomeTabela.jornadaDoCliente)
                         .query(Q.where("cliente_id", clienteAtual.id), Q.where("jornada_do_cliente_is_iniciado", true))
                         .fetch();
-                    console.log("registroAtivo", registroAtivo);
                     listaDeCliente.push({
                         codigo: clienteAtual.cliente_codigo,
                         razaoSocial: clienteAtual.cliente_razao_social,

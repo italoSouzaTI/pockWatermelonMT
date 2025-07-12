@@ -31,10 +31,8 @@ export function useJornadaCliente() {
                 .get(nomeTabela.jornadaDoCliente)
                 .query(Q.where("cliente_id", pedido.cliente_id), Q.where("jornada_do_cliente_is_iniciado", true))
                 .fetch();
-            console.log("registroAtivo", registroAtivo);
             if (registroAtivo.length) {
                 const customId = registroAtivo.map((ctx) => ctx._raw.id);
-                console.log("customId", customId);
                 await finalizarJornada(customId[0]);
             } else {
                 await iniciarJornada(pedido, mapaId, empresaId);

@@ -7,7 +7,6 @@ interface CardClienteProps {
     onPressJornada: (pedido: TCardCliente, mapaId: string, empresaId: string) => void;
 }
 export function CardCliente({ item, onPressJornada }: CardClienteProps) {
-    console.log("item", item);
     const { params } = useRoute();
     const { navigate } = useNavigation();
     return (
