@@ -52,7 +52,7 @@ export function useModelView() {
         if (test) {
             BuscandoMapas();
             populandolistaDeMapa();
-            // syncAll();
+            syncAll();
         }
     }, [test]);
     return {

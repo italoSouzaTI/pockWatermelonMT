@@ -1,11 +1,13 @@
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { useRef, useState } from "react";
 import { database } from "../../../core/database";
 import { EntregaDoPedidoModel } from "../../../core/database/model";
 import { nomeTabela } from "../../../core/database/nomeTabelas";
 import { Q } from "@nozbe/watermelondb";
+import { Alert } from "react-native";
 
 export function useRegistroPedidoView() {
+    const { goBack } = useNavigation();
     const { params } = useRoute();
     const [nome, setNome] = useState("");
     const [documento, setDocumento] = useState("");
@@ -48,6 +50,8 @@ export function useRegistroPedidoView() {
                 return reposta;
             });
             console.log(entregaAtual);
+            Alert.alert("Sucesso no registro");
+            goBack();
         } catch (error) {
             console.log("Error ao salvar");
         }

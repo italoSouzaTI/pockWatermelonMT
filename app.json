@@ -21,7 +21,7 @@
                 "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#ffffff"
             },
-            "edgeToEdgeEnabled": true,
+            "edgeToEdgeEnabled": false,
             "package": "com.italo.pockwatermelonMt"
         },
         "plugins": [
@@ -29,6 +29,7 @@
                 "expo-build-properties",
                 {
                     "ios": {
+                        "deploymentTarget": "15.1",
                         "useFrameworks": "static"
                     }
                 }

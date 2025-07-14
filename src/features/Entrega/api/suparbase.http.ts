@@ -4,7 +4,8 @@ async function todasEmpresas(): Promise<Empresa[]> {
     try {
         const empresas = await supabase.from("empresa").select("*");
         if (!empresas.data) {
-            throw new Error("Nenhuma empresa encontrada");
+            // throw new Error("Nenhuma empresa encontrada");
+            return [];
         }
         return empresas.data.map((row) => ({
             empresa_codigo: row.empresa_codigo,
